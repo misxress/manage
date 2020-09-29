@@ -26,7 +26,6 @@ public class AuthController {
         }catch (ExceptionBean e) {
             return ResponseBean.error(e);
         }
-
         return ResponseBean.ok("登陆成功");
     }
 

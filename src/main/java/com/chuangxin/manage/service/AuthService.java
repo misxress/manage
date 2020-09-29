@@ -14,6 +14,9 @@ public class AuthService {
      * @throws ExceptionBean 抛出异常
      */
     public void login(String username, String password) throws ExceptionBean {
+
+
+
         throw new ExceptionBean(ExceptionBeanType.USER_INPUT_ERROR,"登陆失败");
     }
 }
