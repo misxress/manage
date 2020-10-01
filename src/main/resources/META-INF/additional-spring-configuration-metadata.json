@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "generator.CHARTSET",
+      "type": "java.lang.String",
+      "description": "Description for generator.CHARTSET.",
+      "defaultValue": "utf-8"
+    },
+    {
+      "name": "generator.WIDTH",
+      "type": "java.lang.Integer",
+      "description": "Description for generator.CHARTSET.",
+      "defaultValue": 40
+    },
+    {
+      "name": "generator.HEIGHT",
+      "type": "java.lang.Integer",
+      "description": "Description for generator.CHARTSET.",
+      "defaultValue": 40
+    },
+    {
+      "name": "generator.FORMAT",
+      "type": "java.lang.String",
+      "description": "Description for generator.CHARTSET.",
+      "defaultValue": "png"
+    }
+  ]
+}

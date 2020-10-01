@@ -5,10 +5,8 @@ import com.chuangxin.manage.model.ExceptionBean;
 import com.chuangxin.manage.model.ResponseBean;
 import com.chuangxin.manage.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,8 +17,7 @@ public class AuthController {
     private AuthService authService;
 
     @RequestMapping("/auth/login")
-    public ResponseBean login(String username, String password) {
-
+    public ResponseBean login(@RequestParam("username") String username, @RequestParam("password")String password) {
         try {
             authService.login(username, password);
         }catch (ExceptionBean e) {

@@ -1,1 +1,5 @@
-
+generator:
+  WIDTH: 300
+  HEIGHT: 300
+  FORMAT: "png"
+  CHARTSET: "utf-8"
