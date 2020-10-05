@@ -23,7 +23,7 @@ public class PhotoController {
     private Generator generator;
 
     @RequestMapping(value = "/QRcode/photo_id", method = RequestMethod.GET)
-    public ResponseBean getQRcodeOfPhoto(HttpServletRequest res){
+    public ResponseBean getQRcodeOfPhoto() {
         try {
             BitMatrix bitMatrix = generator.createQRcode();
             int width = bitMatrix.getWidth();
