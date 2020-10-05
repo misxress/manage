@@ -25,6 +25,11 @@ public class Generator {
     private String FORMAT;
     private String CHARTSET;
 
+    /**
+     *
+     * @return
+     * @throws ExceptionBean
+     */
     public BitMatrix createQRcode() throws ExceptionBean {
         try {
             HashMap<EncodeHintType, Object> hints = new HashMap<>();
@@ -37,6 +42,10 @@ public class Generator {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String createUUID() {
         return UUID.randomUUID().toString();
     }
