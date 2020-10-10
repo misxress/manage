@@ -7,8 +7,8 @@ generator:
 
 spring:
   datasource:
-    username:
-    password:
+    username: chuangxin
+    password: chuangxin
     url: jdbc:mysql://localhost:3306/数据库?useUnicode=true&useSSL=false&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 

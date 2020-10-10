@@ -4,6 +4,8 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class User {
-    private int id;
+public class Sign {
+    private String id;
+    private String address;
+    private int userid;
 }
