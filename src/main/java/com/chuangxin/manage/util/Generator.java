@@ -8,14 +8,18 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Data
 @ConfigurationProperties(prefix = "generator")
@@ -26,16 +30,11 @@ public class Generator {
     private int HEIGHT;
     private String FORMAT;
     private String CHARTSET;
+    private int TIME_LENGTH;
 
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
 
-    private Queue<String> pool;
-
-    /**
-     *
-     * @param text
-     * @return
-     * @throws ExceptionBean
-     */
     public String createQRcode(String text) throws ExceptionBean {
         try {
             HashMap<EncodeHintType, Object> hints = new HashMap<>();
@@ -57,17 +56,17 @@ public class Generator {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public String createUUID() {
         String uuid = UUID.randomUUID().toString().replace("-", "");
-        pool.add(uuid);
+        redisTemplate.opsForValue().set(uuid, 1, TIME_LENGTH, TimeUnit.SECONDS);
         return uuid;
     }
 
-    public String getKey() {
-        return pool.poll();
+    public Object getValue(String key) {
+        return key == null ? null : redisTemplate.opsForValue().get(key);
+    }
+
+    public String randomKey() {
+        return redisTemplate.randomKey();
     }
 }

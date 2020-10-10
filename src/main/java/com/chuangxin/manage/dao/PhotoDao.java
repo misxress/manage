@@ -4,13 +4,15 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import java.util.List;
+
 public interface PhotoDao {
 
     @Select("select * from photo where id =#{id}")
     Photo findById(@Param("id") String id);
-    @Insert("insert into photo (id,address) values(#{id},#{address})")
-    int insertPhoto(@Param("id") String id,@Param("address") String address);
+
+    @Insert("insert into photo (id,address,data) values(#{id},#{address},#{data})")
+    void insertPhoto(@Param("id") String id, @Param("address") String address, @Param("data") byte[] data);
+
     @Delete("delete from photo where id =#{id} ")
     void deletePhoto(@Param("id") String id);
 }

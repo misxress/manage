@@ -6,8 +6,10 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Photo {
+
     private String id;
     private String address;
+    private byte[] data;
 
 }
 

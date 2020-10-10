@@ -23,6 +23,12 @@
       "type": "java.lang.String",
       "description": "Description for generator.CHARTSET.",
       "defaultValue": "png"
+    },
+    {
+      "name": "generator.TIME_LENGTH",
+      "type": "java.lang.Integer",
+      "description": "Description for generator.TIME_LENGTH.",
+      "defaultValue": 1500
     }
   ]
 }

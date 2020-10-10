@@ -3,14 +3,31 @@ generator:
   HEIGHT: 40
   FORMAT: "png"
   CHARTSET: "utf-8"
+  TIME_LENGTH: 60
 
 
 spring:
   datasource:
     username: chuangxin
     password: chuangxin
-    url: jdbc:mysql://localhost:3306/数据库?useUnicode=true&useSSL=false&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
+    url: jdbc:mysql://211.87.232.163:3306/chuangxin?useUnicode=true&useSSL=false&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: 211.87.232.163
+    port: 6379
+    database: 0
+    password:
+    timeout: 5000
+
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+
 
 server:
   port: 8080
