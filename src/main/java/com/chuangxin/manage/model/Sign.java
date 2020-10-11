@@ -7,5 +7,6 @@ import lombok.Setter;
 public class Sign {
     private String id;
     private String address;
-    private int userid;
+    private int uid;
+    private byte[] data;
 }

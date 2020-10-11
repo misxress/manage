@@ -11,8 +11,8 @@ public interface PhotoDao {
     Photo findById(@Param("id") String id);
 
     @Insert("insert into photo (id,address,data) values(#{id},#{address},#{data})")
-    void insertPhoto(@Param("id") String id, @Param("address") String address, @Param("data") byte[] data);
+    void insert(@Param("id") String id, @Param("address") String address, @Param("data") byte[] data);
 
     @Delete("delete from photo where id =#{id} ")
-    void deletePhoto(@Param("id") String id);
+    void delete(@Param("id") String id);
 }
